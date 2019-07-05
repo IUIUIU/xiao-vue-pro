@@ -14,8 +14,8 @@ var router = new Router({
     {
       path: '/home',
       component: Home,
-      redirect: '/home/welcome',
-      children: [{ path: '/home/welcome', component: Welcome }]
+      redirect: '/welcome',
+      children: [{ path: '/welcome', component: Welcome }]
     }
   ]
 })
