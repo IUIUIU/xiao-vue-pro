@@ -3,7 +3,7 @@
     <div class="login-box">
       <!-- logo部分： -->
       <div class="avatar-box">
-        <img src="../assets/jump.gif" alt />
+        <img src="../assets/img/jump.gif" alt />
       </div>
 
       <!-- form表单验证部分： -->

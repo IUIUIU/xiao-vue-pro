@@ -1,5 +1,17 @@
-html,body,#app{
+html, body, #app {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+/* 给首页左侧菜单栏设置样式 */
+.el-submenu__title,.el-menu-item{
+  font-size: 13px;
+}
+/* 给首页左侧菜单栏一级图标设置样式 */
+i.iconfont{
+  margin-right:14px; 
+}
+/* 给首页左侧菜单栏二级图标设置样式 */
+.el-menu-item i.el-icon-menu{
+  margin-right:9px;
 }
