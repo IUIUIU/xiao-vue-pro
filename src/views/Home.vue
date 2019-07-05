@@ -8,6 +8,7 @@
       <el-button type="info" @click="logout()">退出</el-button>
     </el-header>
     <el-container>
+      <!-- 侧边导航栏： -->
       <el-aside :width="fold?'65px':'200px'">
         <div class="toggle_bar" @click="fold=!fold">|||</div>
         <el-menu
@@ -17,13 +18,16 @@
           unique-opened
           :collapse="fold"
           :collapse-transition="false"
+          router
         >
+        <!-- 导航栏一级菜单： -->
           <el-submenu v-for="item in menuList" :key="item.id" :index="item.id+''" :style="{width:fold?'65px':'200px'}">
             <template slot="title">
               <i :class="'iconfont icon-'+iconList[item.path]"></i>
               <span>{{item.authName}}</span>
             </template>
-            <el-menu-item v-for="item2 in item.children" :key="item2.id" :index="item.id+'-'+item2.id">
+            <!-- 二级导航菜单： -->
+            <el-menu-item v-for="item2 in item.children" :key="item2.id" :index="item2.path">
               <template slot="title">
               <i class="el-icon-menu"></i>
               <span>{{item2.authName}}</span>
@@ -69,7 +73,7 @@ export default {
       // 使用axios发送请求具体的url地址，获取对应的数据
       // 对象解构赋值重命名：var { data: dt }
       var { data: dt } = await this.$http.get('menus')
-      console.log(dt)
+      // console.log(dt)
       // 数据获取失败的处理（报错）
       if (dt.meta.status !== 200) {
         return this.$message.error(dt.meta.msg)
@@ -139,6 +143,7 @@ export default {
   }
   .el-main {
     background-color: #eaedf1;
+    padding: 0;
   }
 }
 </style>

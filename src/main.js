@@ -18,11 +18,11 @@ axios.interceptors.request.use(function (config) {
   // 给axios配置携带token：token在axios请求头协议信息中需要通过Authorization字段提供token令牌
   var token = window.sessionStorage.getItem('token')
   config.headers.Authorization = token
-
   return config
 }, function (error) {
   return Promise.reject(error)
 })
+
 Vue.prototype.$http = axios
 
 // 注册ElementUI

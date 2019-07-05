@@ -15,8 +15,12 @@ var router = new Router({
       path: '/home',
       component: Home,
       redirect: '/welcome',
-      children: [{ path: '/welcome', component: Welcome }]
+      children: [
+        // home组件的子路由Welcome.vue：
+        { path: '/welcome', component: Welcome }
+      ]
     }
+
   ]
 })
 
