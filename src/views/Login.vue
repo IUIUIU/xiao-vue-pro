@@ -11,12 +11,12 @@
         <!-- 输入框部分： -->
         <!-- <el-form-item prop="设置表单校验时对应的校验对应的属性名"> -->
         <el-form-item prop="username">
-          <el-input v-model="loginForm.username">
+          <el-input v-model="loginForm.username" clearable @clear="login()" @keyup.enter.native="login()" ref="myname">
             <i slot="prefix" class="iconfont icon-user"></i>
           </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="loginForm.password" show-password>
+          <el-input v-model="loginForm.password"  clearable @clear="login()" @keyup.enter.native="login()" show-password ref="mypass">
             <i slot="prefix" class="iconfont icon-3702mima"></i>
           </el-input>
         </el-form-item>
@@ -48,7 +48,7 @@ export default {
       loginFormRules: {
         // username/password要与表单域的prop属性值一致
         username: [
-          // { require: 必填规则, message: '提示信息', trigger: '触发事件' }
+          // { required: 必填规则, message: '提示信息', trigger: '触发事件' }
           { required: true, message: '用户名必填', trigger: 'blur' }
         ],
         password: [{ required: true, message: '密码必填', trigger: 'blur' }]
@@ -70,18 +70,44 @@ export default {
           var { data: dt } = await this.$http.post('login', this.loginForm)
           // 对象解构赋值重命名：var { data: dt }
           console.log(dt)
-          // 判断当状态码不等于200时，会有错误消息提示框弹出来（ElementUI消息提示框）
-          if (dt.meta.status !== 200) {
+          // 判断当状态码不等于200时，会有错误消息提示框弹出来（ElementUI消息提示框）——（这一步被响应拦截器一起处理了）
+          /* if (dt.meta.status !== 200) {
             return this.$message.error(dt.meta.msg)
-          }
+          } */
 
           // 存储令牌：通过window.sessionStorage.setItem('token',data.data.token)
           window.sessionStorage.setItem('token', dt.data.token)
+
+          // 显示登录成功提示：
+          this.$message.success(dt.meta.msg)
 
           // 判断登录成功后页面发生跳转：
           this.$router.push('/home')
         }
       })
+    }
+  },
+  // 设置监听器，监听data成员变化
+  watch: {
+    'loginForm.username': function (newval) {
+      // console.log(newval, oldval)
+      if (newval.trim().length !== 0) {
+        // console.log(this.$refs.mypass)
+        this.$refs.myname.getInput().style.border = '2px solid green '
+      } else {
+        // this.$refs.mypass.getInput().style.borderClolr = 'green'
+        this.$refs.myname.getInput().style.border = '2px solid red'
+      }
+    },
+    'loginForm.password': function (newval) {
+      // console.log(newval, oldval)
+      if (newval.trim().length < 6) {
+        // console.log('red')
+        this.$refs.mypass.getInput().style.border = '2px solid red'
+      } else {
+        // console.log('green')
+        this.$refs.mypass.getInput().style.border = '2px solid green'
+      }
     }
   }
 }

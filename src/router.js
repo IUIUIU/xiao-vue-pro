@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from './views/Login.vue'
 import Home from './views/Home.vue'
 import Welcome from './views/Welcome.vue'
+import User from './views/User.vue'
 
 Vue.use(Router)
 
@@ -17,10 +18,11 @@ var router = new Router({
       redirect: '/welcome',
       children: [
         // home组件的子路由Welcome.vue：
-        { path: '/welcome', component: Welcome }
+        { path: '/welcome', component: Welcome },
+        // home组件的子路由User.vue：
+        { path: '/users', component: User }
       ]
     }
-
   ]
 })
 

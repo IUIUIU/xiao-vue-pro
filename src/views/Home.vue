@@ -5,7 +5,7 @@
         <img src="../assets/img/logo.png" alt />
         <span>VUE后台管理项目</span>
       </div>
-      <el-button type="info" @click="logout()">退出</el-button>
+      <el-button type="danger" @click="logout()">退出</el-button>
     </el-header>
     <el-container>
       <!-- 侧边导航栏： -->
@@ -74,10 +74,12 @@ export default {
       // 对象解构赋值重命名：var { data: dt }
       var { data: dt } = await this.$http.get('menus')
       // console.log(dt)
-      // 数据获取失败的处理（报错）
-      if (dt.meta.status !== 200) {
+
+      // 数据获取失败的处理（报错）：（这一步被响应拦截器一起处理了）
+      /* if (dt.meta.status !== 200) {
         return this.$message.error(dt.meta.msg)
-      }
+      } */
+
       // 把得到的数据渲染给menuList菜单列表：
       this.menuList = dt.data
     }
@@ -143,7 +145,6 @@ export default {
   }
   .el-main {
     background-color: #eaedf1;
-    padding: 0;
   }
 }
 </style>

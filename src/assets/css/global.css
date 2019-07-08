@@ -15,3 +15,25 @@ i.iconfont{
 .el-menu-item i.el-icon-menu{
   margin-right:9px;
 }
+
+
+/* 给用户管理列表内容设置通用的卡片区域内容样式： */
+.box-card{
+  margin-top: 15px;
+  box-shadow: 0 1px 1px rgba(0,0,0,.15)!important;
+}
+
+/* 给table表格设置通用的样式： */
+.el-table{
+  margin-top: 15px;
+  font-size: 12px;
+}
+/* 让表头th与表格tr对齐 */
+.el-table th{
+  display:table-cell !important;
+}
+
+/* 统一给分页器组件设置样式： */
+.el-pagination{
+  margin-top: 15px;
+}
