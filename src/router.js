@@ -5,6 +5,7 @@ import Home from './views/Home.vue'
 import Welcome from './views/Welcome.vue'
 import User from './views/User.vue'
 import Cate from './views/Cate.vue'
+import Param from './views/Param.vue'
 
 Vue.use(Router)
 
@@ -20,9 +21,13 @@ var router = new Router({
       children: [
         // home组件的子路由Welcome.vue：
         { path: '/welcome', component: Welcome },
-        // home组件的子路由User.vue：
+        // home组件的子路由：
+        // 用户列表页面：
         { path: '/users', component: User },
-        { path: '/categories', component: Cate }
+        // 商品分类页面：
+        { path: '/categories', component: Cate },
+        // 分类参数页面：
+        { path: '/params', component: Param }
       ]
     }
   ]
