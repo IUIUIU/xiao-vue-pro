@@ -4,6 +4,7 @@ import Login from './views/Login.vue'
 import Home from './views/Home.vue'
 import Welcome from './views/Welcome.vue'
 import User from './views/User.vue'
+import Cate from './views/Cate.vue'
 
 Vue.use(Router)
 
@@ -20,7 +21,8 @@ var router = new Router({
         // home组件的子路由Welcome.vue：
         { path: '/welcome', component: Welcome },
         // home组件的子路由User.vue：
-        { path: '/users', component: User }
+        { path: '/users', component: User },
+        { path: '/categories', component: Cate }
       ]
     }
   ]

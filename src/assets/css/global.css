@@ -2,6 +2,7 @@ html, body, #app {
   height: 100%;
   margin: 0;
   padding: 0;
+  min-width: 1200px;
 }
 /* 给首页左侧菜单栏设置样式 */
 .el-submenu__title,.el-menu-item{
