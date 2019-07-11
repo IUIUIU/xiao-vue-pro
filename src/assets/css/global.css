@@ -38,3 +38,17 @@ i.iconfont{
 .el-pagination{
   margin-top: 15px;
 }
+
+/* 给添加商品页面的步骤条设置字体大小： */
+.el-step__title{
+  font-size: 12px;
+}
+
+/* 给富文本编辑器配置样式： */
+.quill-editor{
+  margin-bottom: 15px;
+}
+.ql-editor{
+  /* 编辑区域的高度 */
+  height: 200px;
+}

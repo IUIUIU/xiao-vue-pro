@@ -6,6 +6,8 @@ import Welcome from './views/Welcome.vue'
 import User from './views/User.vue'
 import Cate from './views/Cate.vue'
 import Param from './views/Param.vue'
+import Goods from './views/Goods.vue'
+import GoodsAdd from './views/GoodsAdd.vue'
 
 Vue.use(Router)
 
@@ -27,7 +29,11 @@ var router = new Router({
         // 商品分类页面：
         { path: '/categories', component: Cate },
         // 分类参数页面：
-        { path: '/params', component: Param }
+        { path: '/params', component: Param },
+        // 商品列表页面：
+        { path: '/goods', component: Goods },
+        // 添加商品按钮跳转的页面：
+        { path: '/goodsadd', component: GoodsAdd }
       ]
     }
   ]

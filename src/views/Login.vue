@@ -1,4 +1,4 @@
-<template>
+商品数量：<template>
   <div class="login-container">
     <div class="login-box">
       <!-- logo部分： -->

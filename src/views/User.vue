@@ -117,13 +117,7 @@
       <el-row :gutter="20">
         <el-col :span="8">
           <!-- 搜索框： -->
-          <el-input
-            placeholder="请输入搜索内容"
-            v-model="reqParam.query"
-            clearable
-            @clear="getUserList()"
-            @keyup.enter.native="getUserList()"
-          >
+          <el-input placeholder="请输入搜索内容" v-model="reqParam.query" clearable @clear="getUserList()" @keyup.enter.native="getUserList()">
             <!-- 搜索按钮：-------------------------------- -->
             <el-button slot="append" icon="el-icon-search" @click="getUserList()"></el-button>
           </el-input>
