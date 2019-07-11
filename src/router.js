@@ -8,6 +8,7 @@ import Cate from './views/Cate.vue'
 import Param from './views/Param.vue'
 import Goods from './views/Goods.vue'
 import GoodsAdd from './views/GoodsAdd.vue'
+import Report from './views/Report.vue'
 
 Vue.use(Router)
 
@@ -33,7 +34,9 @@ var router = new Router({
         // 商品列表页面：
         { path: '/goods', component: Goods },
         // 添加商品按钮跳转的页面：
-        { path: '/goodsadd', component: GoodsAdd }
+        { path: '/goodsadd', component: GoodsAdd },
+        // 数据报表页面：
+        { path: '/reports', component: Report }
       ]
     }
   ]

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>vue-xiao</title>
+    <!-- nprogress.min.js文件被引入进来，系统就会增加全局变量:NProgress -->
+    <!-- <link href="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.css" rel="stylesheet"> -->
+    <script src="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
   </head>
   <body>
     <noscript>
@@ -13,5 +16,15 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <script>
+    // 需要配置在div容器之后
+    // 注意：关闭加载的小圆圈需要设置在进度条开启之前
+    NProgress.configure({ showSpinner: false })
+    NProgress.start()
+    window.onload = function(){
+      NProgress.done()
+    }
+    </script>
   </body>
 </html>

@@ -7,14 +7,22 @@ import './assets/css/global.css'
 // 引入ElementUI组件库
 import ElementUI from 'element-ui'
 
+// 引入NProgress进度条相关JS、CSS文件：
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 // 引入axios:
 import axios from 'axios'
+// 关闭小圆圈：
+NProgress.configure({ showSpinner: false })
+
 // 配置请求公共跟地址:
 axios.defaults.baseURL = 'http://127.0.0.1:11333/api/private/v1/'
 // 配置请求拦截器：
 // console.dir(axios)
 axios.interceptors.request.use(function (config) {
   // console.log(config)
+  NProgress.start() // 开启进度条
   // 给axios配置携带token：token在axios请求头协议信息中需要通过Authorization字段提供token令牌
   var token = window.sessionStorage.getItem('token')
   config.headers.Authorization = token
@@ -34,6 +42,7 @@ new Vue({
   created () {
     // 配置响应拦截器：因为需要操作Vue对象$message成员，所以拦截器要放在Vue内部
     axios.interceptors.response.use(response => {
+      NProgress.done() // 关闭进度条
       // 实现请求返回的后续处理:
       // response：是axios请求从服务器端返回的结果——>await修饰的返回结果
       // response是一个对象：config、data、header、request、status、statusText
