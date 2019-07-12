@@ -1,11 +1,7 @@
 <template>
   <div>
-    <!-- 面包屑导航：----------------------------------------- -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/welcome' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-      <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-    </el-breadcrumb>
+    <!-- 封装面包屑导航的组件：BreadCrumb.vue-------------- -->
+    <bread-crumb one="用户管理" two="用户列表" three="users"></bread-crumb>
 
     <!-- 添加用户按钮的弹框：---------------------------------- -->
     <el-dialog

@@ -1,31 +1,27 @@
 <template>
   <div>
-    <!-- 面包屑导航：----------------------------------------- -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/welcome' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>数据统计</el-breadcrumb-item>
-      <el-breadcrumb-item>数据报表</el-breadcrumb-item>
-    </el-breadcrumb>
+    <!-- 封装面包屑导航的组件：BreadCrumb.vue-------------- -->
+    <bread-crumb one="数据统计" two="数据报表" three="reports"></bread-crumb>
 
     <!-- 卡片内容区域：-------------------------------------- -->
     <el-card class="box-card">
       <!-- 柱状图——报表的容器： -->
-    <div id="report" style="width:750px; height:400px;"></div>
+    <div id="report" ref="rep" style="width:750px; height:400px;"></div>
     </el-card>
 
     <el-card class="box-card">
       <!-- 饼状图——报表的容器： -->
-    <div id="report1" style="width:750px; height:400px;"></div>
+    <div id="report1" ref="rep1" style="width:750px; height:400px;"></div>
     </el-card>
 
     <el-card class="box-card">
       <!-- 折线图——报表的容器： -->
-    <div id="report2" style="width:750px; height:400px;"></div>
+    <div id="report2" ref="rep2" style="width:750px; height:400px;"></div>
     </el-card>
 
     <el-card class="box-card">
       <!-- 矩形树图——报表的容器： -->
-    <div id="report3" style="width:750px; height:400px;"></div>
+    <div id="report3" ref="rep3" style="width:750px; height:400px;"></div>
     </el-card>
   </div>
 </template>
@@ -54,7 +50,9 @@ export default {
     // 制作柱状图表：
     paintDataPic () {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById('report'))
+      // var myChart = echarts.init(document.getElementById('report'))
+      // 通过vue的$refs来找到对应的容器标签：
+      var myChart = echarts.init(this.$refs.rep)
       // 绘制图表
       myChart.setOption({
         title: {
@@ -76,7 +74,9 @@ export default {
     // 制作饼状图表：
     pieChart () {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById('report1'))
+      // var myChart = echarts.init(document.getElementById('report1'))
+      var myChart = echarts.init(this.$refs.rep1)
+
       // 绘制图表
       myChart.setOption({
         title: {
@@ -121,7 +121,9 @@ export default {
     // 制作折线图表：
     lineChart () {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById('report2'))
+      // var myChart = echarts.init(document.getElementById('report2'))
+      var myChart = echarts.init(this.$refs.rep2)
+
       // 绘制图表
       myChart.setOption({
         title: {
@@ -211,7 +213,9 @@ export default {
     // 制作矩形树图表：
     recChart () {
       // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById('report3'))
+      // var myChart = echarts.init(document.getElementById('report3'))
+      var myChart = echarts.init(this.$refs.rep3)
+
       // 绘制图表
       myChart.setOption({
         series: [{

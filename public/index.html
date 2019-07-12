@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>vue-xiao</title>
-    <!-- nprogress.min.js文件被引入进来，系统就会增加全局变量:NProgress -->
+    <!-- nprogress进度条的样式文件：因为需要配置自定义进度条的样式，所以禁用外部引入的文件 -->
     <!-- <link href="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.css" rel="stylesheet"> -->
+    <!-- nprogress.min.js文件被引入进来，系统就会增加全局变量:NProgress -->
     <script src="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+    <!-- Vue外部引入文件：增加全局变量：Vue -->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.runtime.min.js"></script>
+    <!-- axios外部引入文件：增加全局变量：axios -->
+    <script src="https://cdn.bootcss.com/axios/0.19.0/axios.min.js"></script>
+    <!-- vue-router外部引入文件：增加全局变量：vue-router -->
+    <script src="https://cdn.bootcss.com/vue-router/3.0.7/vue-router.min.js"></script>
+    <!-- echarts外部引入文件：增加全局变量：echarts -->
+    <script src="https://cdn.bootcss.com/echarts/4.2.1/echarts.min.js"></script>
   </head>
   <body>
     <noscript>
